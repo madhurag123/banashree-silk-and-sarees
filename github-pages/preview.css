@@ -1,0 +1,31 @@
+.client-preview-note {
+  background: #34241e;
+  color: #fff9ef;
+  text-align: center;
+  padding: 10px 16px;
+  font:
+    13px/1.6 Arial,
+    sans-serif;
+}
+.preview-readonly-note {
+  padding: 18px;
+  border: 1px solid #dbc9ae;
+  background: #f4ead8;
+  margin: 20px auto;
+  width: min(1320px, calc(100% - 32px));
+  font-size: 15px;
+}
+.preview-fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+.preview-fieldset:disabled {
+  cursor: default;
+}
+.preview-fieldset:disabled input,
+.preview-fieldset:disabled select,
+.preview-fieldset:disabled textarea {
+  opacity: 0.7;
+}

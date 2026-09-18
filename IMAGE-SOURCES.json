@@ -1,0 +1,178 @@
+{
+  "purpose": "BANAshree demo storefront assets",
+  "reviewed": "2026-09-18",
+  "notes": [
+    "12 distinct saree catalog images plus a separate hero.",
+    "All images visually inspected.",
+    "Generated images are fictional examples. Stock photographs illustrate sample listings; verify all real product claims against merchant inventory.",
+    "saree-red-studio.jpg excluded: source title calls it a saree but the outfit is a lehenga."
+  ],
+  "recommended_first_row": [
+    "saree-emerald.png",
+    "saree-ivory.png",
+    "saree-pink-silk.jpg",
+    "saree-blue-orange.jpg"
+  ],
+  "assets": [
+    {
+      "file": "banashree-hero.png",
+      "caption": "Original fictional fashion editorial: woman in a burgundy silk saree with antique gold zari, positioned on the right of an ivory heritage interior.",
+      "width": 1672,
+      "height": 941,
+      "kind": "generated",
+      "source": "OpenAI built-in image_gen",
+      "reuse": "Original AI-generated demo imagery; fictional model and garment, not documentation of actual inventory.",
+      "prompt": "Use case: photorealistic-natural. Asset type: wide luxury Indian saree boutique website hero, landscape 16:9. Primary request: an original fictional adult Indian woman elegantly wearing a deep burgundy red silk saree with finely woven antique gold zari border and subtle small floral buta, matching modest blouse and delicate traditional gold earrings. Scene: a serene heritage Indian palace interior with warm ivory limewashed walls, carved sandstone archway and soft linen curtain, restrained luxurious editorial fashion photography. Composition: woman on RIGHT THIRD from head to near ankles, her richly draped silk pallu visible; LEFT HALF broad uncluttered warm ivory wall in gentle shadow for website heading text. Warm side daylight from right, natural skin texture, fine realistic silk sheen, quietly elegant pose with hands relaxed, no exaggerated glamour. Palette warm ivory, muted maroon, antique gold. No text, logo, watermark, collage or graphics."
+    },
+    {
+      "file": "saree-emerald.png",
+      "caption": "Original fictional full-length catalog portrait: woman in emerald silk saree with antique gold zari, in a warm ivory studio.",
+      "width": 1024,
+      "height": 1536,
+      "kind": "generated",
+      "source": "OpenAI built-in image_gen",
+      "reuse": "Original AI-generated demo imagery; fictional model and garment, not documentation of actual inventory.",
+      "prompt": "Use case: product-mockup. Asset type: portrait fashion catalog photograph, 2:3 composition. Primary request: a fictional adult Indian woman wearing a luxurious emerald green silk saree with woven antique gold border and delicate gold buta motifs, elegant matching blouse, tiny gold earrings and neat dark hair bun. Scene: clean warm ivory plaster boutique photography studio, subtle natural shadow and sandstone floor. Full-length centered standing pose, head and fabric hem fully in frame with margin; hands softly resting at waist, beautiful rich drape clearly shows fabric weave and zari. Contemporary premium Indian fashion editorial, natural realistic skin, soft diffuse daylight, no clutter, no writing, no branding, no watermark, no collage."
+    },
+    {
+      "file": "saree-ivory.png",
+      "caption": "Original fictional full-length catalog portrait: woman in champagne ivory silk saree with antique gold zari and maroon blouse, in a warm ivory studio.",
+      "width": 1024,
+      "height": 1536,
+      "kind": "generated",
+      "source": "OpenAI built-in image_gen",
+      "reuse": "Original AI-generated demo imagery; fictional model and garment, not documentation of actual inventory.",
+      "prompt": "Use case: product-mockup. Asset type: portrait fashion catalog photograph, 2:3 composition. Primary request: a fictional adult Indian woman wearing an elegant champagne ivory silk saree with a wide antique gold zari border, tiny gold woven floral motifs and muted maroon blouse, minimal gold earrings and neat dark hair bun. Scene: clean warm ivory plaster boutique photography studio, subtle natural shadow and sandstone floor. Full-length centered standing pose, head and fabric hem fully in frame with margin; hands softly holding one draped fold at waist, beautiful fabric texture and gold shimmer clearly visible. Contemporary premium Indian fashion editorial, natural realistic skin, soft diffuse daylight, no clutter, no writing, no branding, no watermark, no collage."
+    },
+    {
+      "file": "saree-pink-silk.jpg",
+      "kind": "stock",
+      "photographer": "Milton Das",
+      "source": "https://www.pexels.com/photo/elegant-woman-in-traditional-pink-silk-saree-35108809/",
+      "download": "https://images.pexels.com/photos/35108809/pexels-photo-35108809.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "license": "Pexels License",
+      "license_url": "https://www.pexels.com/license/",
+      "reuse": "Free website/e-commerce use; attribution appreciated but not required. Do not imply subject endorsement or sell/redistribute unaltered image as a stock asset.",
+      "caption": "Woman in blush pink and peach silk saree with woven floral motifs, full-length against a pale wall.",
+      "width": 1200,
+      "height": 1800
+    },
+    {
+      "file": "saree-lavender.jpg",
+      "kind": "stock",
+      "photographer": "Milton Das",
+      "source": "https://www.pexels.com/photo/elegant-woman-in-lavender-silk-saree-indoors-35108864/",
+      "download": "https://images.pexels.com/photos/35108864/pexels-photo-35108864.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "license": "Pexels License",
+      "license_url": "https://www.pexels.com/license/",
+      "reuse": "Free website/e-commerce use; attribution appreciated but not required. Do not imply subject endorsement or sell/redistribute unaltered image as a stock asset.",
+      "caption": "Woman in lavender silk saree with silver floral zari, nearly full-length against a pale wall.",
+      "width": 1200,
+      "height": 1800
+    },
+    {
+      "file": "saree-teal-purple.jpg",
+      "kind": "stock",
+      "photographer": "Milton Das",
+      "source": "https://www.pexels.com/photo/woman-in-elegant-teal-and-purple-saree-indoors-35108863/",
+      "download": "https://images.pexels.com/photos/35108863/pexels-photo-35108863.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "license": "Pexels License",
+      "license_url": "https://www.pexels.com/license/",
+      "reuse": "Free website/e-commerce use; attribution appreciated but not required. Do not imply subject endorsement or sell/redistribute unaltered image as a stock asset.",
+      "caption": "Woman in lavender and turquoise floral silk saree with silver zari, full-length against a pale wall.",
+      "width": 1200,
+      "height": 1800
+    },
+    {
+      "file": "saree-rose-blue.jpg",
+      "kind": "stock",
+      "photographer": "Milton Das",
+      "source": "https://www.pexels.com/photo/elegant-woman-in-traditional-indian-saree-35108855/",
+      "download": "https://images.pexels.com/photos/35108855/pexels-photo-35108855.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "license": "Pexels License",
+      "license_url": "https://www.pexels.com/license/",
+      "reuse": "Free website/e-commerce use; attribution appreciated but not required. Do not imply subject endorsement or sell/redistribute unaltered image as a stock asset.",
+      "caption": "Woman in rose pink and powder blue geometric silk saree with silver border.",
+      "width": 1200,
+      "height": 1800
+    },
+    {
+      "file": "saree-checkered.jpg",
+      "kind": "stock",
+      "photographer": "Barathan Amuthan",
+      "source": "https://www.pexels.com/photo/photo-of-a-woman-wearing-sari-dress-2723623/",
+      "download": "https://images.pexels.com/photos/2723623/pexels-photo-2723623.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "license": "Pexels License",
+      "license_url": "https://www.pexels.com/license/",
+      "reuse": "Free website/e-commerce use; attribution appreciated but not required. Do not imply subject endorsement or sell/redistribute unaltered image as a stock asset.",
+      "caption": "Seated editorial portrait of a woman in a multicolored checked saree and yellow blouse against a dark warm backdrop.",
+      "width": 1200,
+      "height": 1800
+    },
+    {
+      "file": "saree-yellow.jpg",
+      "kind": "stock",
+      "photographer": "Aayan Garg",
+      "source": "https://www.pexels.com/photo/standing-woman-in-yellow-saree-17039902/",
+      "download": "https://images.pexels.com/photos/17039902/pexels-photo-17039902.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "license": "Pexels License",
+      "license_url": "https://www.pexels.com/license/",
+      "reuse": "Free website/e-commerce use; attribution appreciated but not required. Do not imply subject endorsement or sell/redistribute unaltered image as a stock asset.",
+      "caption": "Waist-up portrait of a woman in bright yellow saree and embroidered blouse, outdoors.",
+      "width": 1200,
+      "height": 1800
+    },
+    {
+      "file": "saree-green-gold.jpg",
+      "kind": "stock",
+      "photographer": "Milton Das",
+      "source": "https://www.pexels.com/photo/elegant-woman-in-traditional-indian-saree-35108774/",
+      "download": "https://images.pexels.com/photos/35108774/pexels-photo-35108774.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "license": "Pexels License",
+      "license_url": "https://www.pexels.com/license/",
+      "reuse": "Free website/e-commerce use; attribution appreciated but not required. Do not imply subject endorsement or sell/redistribute unaltered image as a stock asset.",
+      "caption": "Woman in chartreuse gold floral saree with emerald green and antique gold border, full-length.",
+      "width": 1200,
+      "height": 1800
+    },
+    {
+      "file": "saree-sea-green.jpg",
+      "kind": "stock",
+      "photographer": "Milton Das",
+      "source": "https://www.pexels.com/photo/elegant-woman-in-sea-green-silk-saree-portrait-35108854/",
+      "download": "https://images.pexels.com/photos/35108854/pexels-photo-35108854.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "license": "Pexels License",
+      "license_url": "https://www.pexels.com/license/",
+      "reuse": "Free website/e-commerce use; attribution appreciated but not required. Do not imply subject endorsement or sell/redistribute unaltered image as a stock asset.",
+      "caption": "Woman in sea green and muted mauve leaf-patterned silk saree with silver border, full-length.",
+      "width": 1200,
+      "height": 1800
+    },
+    {
+      "file": "saree-blue-orange.jpg",
+      "kind": "stock",
+      "photographer": "Milton Das",
+      "source": "https://www.pexels.com/photo/elegant-woman-in-traditional-indian-saree-35108775/",
+      "download": "https://images.pexels.com/photos/35108775/pexels-photo-35108775.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "license": "Pexels License",
+      "license_url": "https://www.pexels.com/license/",
+      "reuse": "Free website/e-commerce use; attribution appreciated but not required. Do not imply subject endorsement or sell/redistribute unaltered image as a stock asset.",
+      "caption": "Woman in deep blue saree with copper zari and maroon pallu, full-length.",
+      "width": 1200,
+      "height": 1800
+    },
+    {
+      "file": "saree-blue-maroon.jpg",
+      "kind": "stock",
+      "photographer": "Milton Das",
+      "source": "https://www.pexels.com/photo/elegant-woman-in-traditional-saree-portrait-35108765/",
+      "download": "https://images.pexels.com/photos/35108765/pexels-photo-35108765.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "license": "Pexels License",
+      "license_url": "https://www.pexels.com/license/",
+      "reuse": "Free website/e-commerce use; attribution appreciated but not required. Do not imply subject endorsement or sell/redistribute unaltered image as a stock asset.",
+      "caption": "Close portrait of a woman in teal saree with antique gold brocade and maroon blouse.",
+      "width": 1200,
+      "height": 1800
+    }
+  ]
+}
