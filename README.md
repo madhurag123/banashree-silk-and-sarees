@@ -26,3 +26,25 @@ GitHub Pages serves static files only. Deploy the full backend using the archive
 GitHub Pages is configured for branch `main`, folder `/ (root)`. Keep the preview entry point and its image, CSS, JavaScript and font files together. The source archive also contains a standard `/docs` build and `GITHUB-PAGES.md` instructions for maintaining the full development project.
 
 Photography provenance is in [IMAGE-SOURCES.json](IMAGE-SOURCES.json). The bundled font license is [OFL.txt](OFL.txt).
+
+
+## Review and run the static preview
+
+The public demo is the quickest review path. To run the same preview locally, install Git and Python 3, then run these commands from a directory that will contain the clone:
+
+```sh
+git clone https://github.com/madhurag123/banashree-silk-and-sarees.git
+python3 -m http.server 8768 --bind 127.0.0.1
+```
+
+Keep the server in the **parent directory** of the clone and open **http://127.0.0.1:8768/banashree-silk-and-sarees/**. The published assets use that repository path; serving only the repository root at `/` will produce missing JavaScript and CSS files. Stop the server with Ctrl+C. No credentials, database, or package installation are needed for this static preview.
+
+For the complete development application, extract `banashree-source.zip` and follow its `README.md`, `.env.example`, `GITHUB-PAGES.md`, and `DEPLOYMENT.md`. The archive uses React/TypeScript, a server API, and Cloudflare D1; the Pages site serves only the compiled preview. Keep generated setup keys and local configuration private.
+
+## Verification and next steps
+
+On 18 September 2026, the public preview and the matching local static files loaded successfully at the repository path. This confirms static serving, not production checkout or external payment/email integrations.
+
+When changing the preview, check Home → Shop → product details, search/filter behavior, wishlist and bag persistence, and the disabled account/checkout notices on desktop and a narrow screen. Keep sample labels visible.
+
+Next steps: import the structured development source into normal versioned files for easier code review; add a repeatable preview check; and record the exact personal contribution and tools/assistance used in the project. Full-store launch requires the separate deployment and external-service checks in the source archive.
