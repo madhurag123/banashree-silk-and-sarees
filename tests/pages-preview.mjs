@@ -69,6 +69,13 @@ try {
   const item=(await previewApi('cart')).items[0];
   await previewApi('cart',{remove:item.id});
   assert.equal((await previewApi('cart')).items.length,0);
+  values.set('banashree-client-preview-v1',JSON.stringify({cart:[{variantId,quantity:1,service:true},{variantId,quantity:1,service:false}],wishlist:[]}));
+  const legacy=(await previewApi('cart')).items;
+  assert.equal(legacy.length,1);
+  assert.equal(legacy[0].quantity,2);
+  assert.equal(legacy[0].service,false);
+  await previewApi('cart',{variantId,quantity:3,replace:true,service:false});
+  assert.equal((await previewApi('cart')).items[0].quantity,3);
   document.documentElement.dataset.preview='';
   assert.equal(isPagesPreview(),false);
   assert.equal(previewAsset('/images/hero.jpg'),'/images/hero.jpg');

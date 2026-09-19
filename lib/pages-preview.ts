@@ -36,18 +36,18 @@ const previewProducts = () =>
 function read(): State {
   try {
     const s = JSON.parse(localStorage.getItem(storageKey) || "{}");
+    const cart: Line[] = [];
+    for (const x of Array.isArray(s.cart) ? s.cart : []) {
+      if (!x || typeof x.variantId !== "string" || !Number.isInteger(x.quantity) || x.quantity < 1 || x.quantity > 10 || typeof x.service !== "boolean") continue;
+      const product = previewProducts().find((p) => p.variants.some((v) => v.id === x.variantId));
+      if (!product) continue;
+      const service = Boolean(x.service && product.fall_pico);
+      const existing = cart.find((line) => line.variantId === x.variantId && line.service === service);
+      if (existing) existing.quantity += x.quantity;
+      else cart.push({ variantId: x.variantId, quantity: x.quantity, service });
+    }
     return {
-      cart: Array.isArray(s.cart)
-        ? s.cart.filter(
-            (x: any) =>
-              x &&
-              typeof x.variantId === "string" &&
-              Number.isInteger(x.quantity) &&
-              x.quantity > 0 &&
-              x.quantity <= 10 &&
-              typeof x.service === "boolean",
-          )
-        : [],
+      cart,
       wishlist: Array.isArray(s.wishlist)
         ? s.wishlist.filter((x: any) => typeof x === "string")
         : [],
