@@ -44,9 +44,9 @@ const pass = (s) => {
   console.log("PASS " + s);
 };
 const store = await guest("store");
-assert.equal(store.products.length, 12);
+assert.equal(store.products.length, 24);
 assert.ok(store.products.every((x) => x.sample === 1));
-pass("Twelve clearly labelled persistent sample products");
+pass("Twenty-four clearly labelled persistent sample products");
 await guest("admin", undefined, 401);
 await guest("account", undefined, 401);
 pass("Anonymous account and admin access rejected");
@@ -105,21 +105,22 @@ assert.equal(account.user.name, "Updated Test Shopper");
 assert.ok(account.wishlist.includes("p1"));
 assert.equal(account.addresses.length, 1);
 pass("Profile, wishlist and address persistence");
-await customer("cart", { variantId: "vp1", quantity: 1, service: true });
+await customer("cart", { variantId: "vp1", quantity: 1, service: true }, 400);
+await customer("cart", { variantId: "vp1", quantity: 1, service: false });
 await customer("cart", {
   variantId: "vp1",
   quantity: 2,
-  service: true,
+  service: false,
   replace: true,
 });
 let bag = await customer("cart");
 assert.equal(bag.items[0].quantity, 2);
 await customer("checkout/quote", { coupon: "NOT-VALID" }, 400);
 const quote = await customer("checkout/quote", { coupon: "WELCOME10" });
-assert.equal(quote.subtotal, 1400000);
-assert.equal(quote.discount, 140000);
-assert.equal(quote.total, 1260000);
-pass("Cart editing, finishing service, invalid coupon and server totals");
+assert.equal(quote.subtotal, 1370000);
+assert.equal(quote.discount, 137000);
+assert.equal(quote.total, 1233000);
+pass("Cart editing, no finishing surcharge, invalid coupon and server totals");
 const key = crypto.randomUUID();
 const payload = {
   email,
@@ -136,7 +137,7 @@ const [a, b] = await Promise.all([
 assert.equal(a.id, b.id);
 assert.equal((await customer("checkout", payload)).id, a.id);
 let order = await customer("orders/" + a.id);
-assert.equal(order.total, 1260000);
+assert.equal(order.total, 1233000);
 assert.equal(order.payment_status, "demo_unpaid");
 assert.equal(order.test, 1);
 assert.equal((await customer("cart")).items.length, 0);
@@ -254,10 +255,20 @@ await admin("admin/product", ps);
 const newVariant = {
   product_id: ps.id,
   color: "QA Ivory",
+  image: "/images/saree-mysore-heritage-ivory.jpg",
   sku: "QA-" + Date.now(),
   stock: 1,
 };
 await admin("admin/variant", newVariant);
+const savedColour=(await admin("admin")).variants.find(v=>v.sku===newVariant.sku);
+assert.equal(savedColour.image,newVariant.image);
+await admin("admin/variant",{...newVariant,sku:newVariant.sku+'-invalid',image:'javascript:alert(1)'},400);
+await outsider("cart",{variantId:savedColour.id,quantity:1});
+const colourLine=(await outsider("cart")).items[0];
+assert.equal(colourLine.color,'QA Ivory');
+assert.equal(colourLine.images[0],newVariant.image);
+await outsider("cart",{variantId:savedColour.id,quantity:2,replace:true},409);
+pass("Colour photograph persistence, bag selection and stock validation");
 pass("Admin product, variant, inventory and coupon actions");
 await customer("contact", {
   name: "Test Shopper",

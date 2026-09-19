@@ -814,16 +814,18 @@ async function handler(req: Request) {
             product_id: z.string(),
             color: z.string().min(2).max(50),
             sku: z.string().min(2).max(60),
+            image: z.string().refine((x) => x === "" || /^\/images\/[a-zA-Z0-9_.-]+$/.test(x) || /^https:\/\//.test(x), "Use a local image path or HTTPS image URL.").default(""),
             stock: z.number().int().min(0).max(100000),
           })
           .parse(b);
         await q(
-          "INSERT INTO variants(id,product_id,color,sku,stock) VALUES(?,?,?,?,?) ON CONFLICT(id) DO UPDATE SET color=excluded.color,sku=excluded.sku,stock=excluded.stock",
+          "INSERT INTO variants(id,product_id,color,sku,stock,image) VALUES(?,?,?,?,?,?) ON CONFLICT(id) DO UPDATE SET color=excluded.color,sku=excluded.sku,stock=excluded.stock,image=excluded.image",
           v.id || uid(),
           v.product_id,
           v.color,
           v.sku,
           v.stock,
+          v.image,
         ).run();
       } else if (path === "admin/coupon") {
         const c = z

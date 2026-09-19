@@ -55,3 +55,12 @@ Verified against the local preview after the mobile layout changes:
 - Admin overview at 320px: navigation wraps, sign-out stays accessible, and the dashboard fits without document overflow.
 
 The API and payment logic were unchanged by this update. Existing integration results above remain the backend verification record.
+
+## Expanded catalogue and same-design colours — 18 September 2026
+
+- 24 sample designs and 30 colour choices, including three Mysore Silk designs with three matching colour images each. All new photographs visually inspected.
+- Type checking, static Pages build and full-stack production build passed.
+- All 16 local customer/admin journey groups passed, including variant-image persistence, server stock bounds, no finishing surcharge, order deduplication and permission checks. Local tests use an isolated sample database.
+- Static-preview assertions passed for colour-specific bag images and quantities, sold-out rejection, coupon totals, wishlist, asset existence and blocked payments/accounts/admin writes.
+- Browser checks: 24 designs listed; Mysore collection; colour switch changes photo and stock; emerald and navy stay separate in the bag; sold-out plum disables purchasing; combined colour and availability filter returns an empty state; no finishing option. Phone widths 320 and 390 plus tablet width 768 showed no horizontal overflow.
+- Real Razorpay, email delivery and shipping remain unconfigured and were not exercised. GitHub Pages remains a static client preview.

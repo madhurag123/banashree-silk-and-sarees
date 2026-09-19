@@ -1,8 +1,8 @@
 {
-  "purpose": "BANAshree demo storefront assets",
+  "purpose": "Banashree client-preview catalogue imagery",
   "reviewed": "2026-09-18",
   "notes": [
-    "12 distinct saree catalog images plus a separate hero.",
+    "24 sample designs, 30 colour-specific catalogue photographs and a separate hero.",
     "All images visually inspected.",
     "Generated images are fictional examples. Stock photographs illustrate sample listings; verify all real product claims against merchant inventory.",
     "saree-red-studio.jpg excluded: source title calls it a saree but the outfit is a lehenga."
@@ -15,7 +15,7 @@
   ],
   "assets": [
     {
-      "file": "banashree-hero.png",
+      "file": "hero.jpg",
       "caption": "Original fictional fashion editorial: woman in a burgundy silk saree with antique gold zari, positioned on the right of an ivory heritage interior.",
       "width": 1672,
       "height": 941,
@@ -25,7 +25,7 @@
       "prompt": "Use case: photorealistic-natural. Asset type: wide luxury Indian saree boutique website hero, landscape 16:9. Primary request: an original fictional adult Indian woman elegantly wearing a deep burgundy red silk saree with finely woven antique gold zari border and subtle small floral buta, matching modest blouse and delicate traditional gold earrings. Scene: a serene heritage Indian palace interior with warm ivory limewashed walls, carved sandstone archway and soft linen curtain, restrained luxurious editorial fashion photography. Composition: woman on RIGHT THIRD from head to near ankles, her richly draped silk pallu visible; LEFT HALF broad uncluttered warm ivory wall in gentle shadow for website heading text. Warm side daylight from right, natural skin texture, fine realistic silk sheen, quietly elegant pose with hands relaxed, no exaggerated glamour. Palette warm ivory, muted maroon, antique gold. No text, logo, watermark, collage or graphics."
     },
     {
-      "file": "saree-emerald.png",
+      "file": "saree-emerald.jpg",
       "caption": "Original fictional full-length catalog portrait: woman in emerald silk saree with antique gold zari, in a warm ivory studio.",
       "width": 1024,
       "height": 1536,
@@ -35,7 +35,7 @@
       "prompt": "Use case: product-mockup. Asset type: portrait fashion catalog photograph, 2:3 composition. Primary request: a fictional adult Indian woman wearing a luxurious emerald green silk saree with woven antique gold border and delicate gold buta motifs, elegant matching blouse, tiny gold earrings and neat dark hair bun. Scene: clean warm ivory plaster boutique photography studio, subtle natural shadow and sandstone floor. Full-length centered standing pose, head and fabric hem fully in frame with margin; hands softly resting at waist, beautiful rich drape clearly shows fabric weave and zari. Contemporary premium Indian fashion editorial, natural realistic skin, soft diffuse daylight, no clutter, no writing, no branding, no watermark, no collage."
     },
     {
-      "file": "saree-ivory.png",
+      "file": "saree-ivory.jpg",
       "caption": "Original fictional full-length catalog portrait: woman in champagne ivory silk saree with antique gold zari and maroon blouse, in a warm ivory studio.",
       "width": 1024,
       "height": 1536,
@@ -173,6 +173,199 @@
       "caption": "Close portrait of a woman in teal saree with antique gold brocade and maroon blouse.",
       "width": 1200,
       "height": 1800
+    },
+    {
+      "file": "saree-indigo-cotton.jpg",
+      "kind": "generated",
+      "mode": "generate",
+      "source": "OpenAI built-in image_gen",
+      "reference": "",
+      "prompt": "Use case: product-mockup. Asset type: portrait 2:3 ecommerce fashion catalogue photograph for an Indian saree boutique. Create one photorealistic full-length photograph of a fictional adult Indian woman, standing in a calm ivory plaster studio on a sandstone floor. Head and entire saree hem visible with margin, natural skin texture, tasteful minimal earrings, no heavy jewellery, fabric drape clearly visible, soft diffused window light, professionally lit fashion photography. No text, no logo, no watermark, no collage. The saree is indigo blue matte cotton with fine ivory woven stripes and a narrow cream border, matching modest short-sleeved blouse. Model has a loose low bun, holds the pallu gently at waist, realistic breathable cotton texture. Everyday understated style, no silk sheen.",
+      "width": 900,
+      "height": 1350,
+      "reuse": "Fictional sample garment and model, not verified store inventory. Colour edits preserve the original garment design."
+    },
+    {
+      "file": "saree-sage-linen.jpg",
+      "kind": "generated",
+      "mode": "generate",
+      "source": "OpenAI built-in image_gen",
+      "reference": "",
+      "prompt": "Use case: product-mockup. Asset type: portrait 2:3 ecommerce fashion catalogue photograph for an Indian saree boutique. Create one photorealistic full-length photograph of a fictional adult Indian woman, standing in a calm ivory plaster studio on a sandstone floor. Head and entire saree hem visible with margin, natural skin texture, tasteful minimal earrings, no heavy jewellery, fabric drape clearly visible, soft diffused window light, professionally lit fashion photography. No text, no logo, no watermark, no collage. The saree is muted sage green linen with clearly visible fine slub texture, a narrow natural ivory border and subtle tassels at the pallu. Plain ivory modest blouse. Model has shoulder-length dark hair tucked behind ears, relaxed posture. Matte linen texture, no metallic brocade, no silk sheen.",
+      "width": 900,
+      "height": 1350,
+      "reuse": "Fictional sample garment and model, not verified store inventory. Colour edits preserve the original garment design."
+    },
+    {
+      "file": "saree-rust-cotton.jpg",
+      "kind": "generated",
+      "mode": "generate",
+      "source": "OpenAI built-in image_gen",
+      "reference": "",
+      "prompt": "Use case: product-mockup. Asset type: portrait 2:3 ecommerce fashion catalogue photograph for an Indian saree boutique. Create one photorealistic full-length photograph of a fictional adult Indian woman, standing in a calm ivory plaster studio on a sandstone floor. Head and entire saree hem visible with margin, natural skin texture, tasteful minimal earrings, no heavy jewellery, fabric drape clearly visible, soft diffused window light, professionally lit fashion photography. No text, no logo, no watermark, no collage. The saree is warm terracotta rust matte cotton with small cream block-printed geometric motifs, a charcoal narrow border and a long patterned pallu. Modest charcoal blouse. Model has dark hair tied in a neat low bun and wears small silver earrings. Fabric texture realistic, no shiny silk.",
+      "width": 900,
+      "height": 1350,
+      "reuse": "Fictional sample garment and model, not verified store inventory. Colour edits preserve the original garment design."
+    },
+    {
+      "file": "saree-sand-linen.jpg",
+      "kind": "generated",
+      "mode": "generate",
+      "source": "OpenAI built-in image_gen",
+      "reference": "",
+      "prompt": "Use case: product-mockup. Asset type: portrait 2:3 ecommerce fashion catalogue photograph for an Indian saree boutique. Create one photorealistic full-length photograph of a fictional adult Indian woman, standing in a calm ivory plaster studio on a sandstone floor. Head and entire saree hem visible with margin, natural skin texture, tasteful minimal earrings, no heavy jewellery, fabric drape clearly visible, soft diffused window light, professionally lit fashion photography. No text, no logo, no watermark, no collage. The saree is oatmeal beige linen with a subtle fine grey woven pinstripe, a charcoal border and short charcoal tassels. Modest charcoal blouse. Model has long dark hair tied back and wears tiny silver earrings. Linen slub texture, natural soft folds, understated officewear, no metallic sheen.",
+      "width": 900,
+      "height": 1350,
+      "reuse": "Fictional sample garment and model, not verified store inventory. Colour edits preserve the original garment design."
+    },
+    {
+      "file": "saree-mysore-wine.jpg",
+      "kind": "generated",
+      "mode": "generate",
+      "source": "OpenAI built-in image_gen",
+      "reference": "",
+      "prompt": "Use case: product-mockup. Asset type: portrait 2:3 premium Indian saree catalogue photo. Photorealistic fictional adult Indian woman wearing a Mysore silk style saree, smooth lustrous plain silk body, restrained elegant gold-coloured woven border and striped gold pallu, graceful lightweight drape. Full length head to hem visible with margin, centred in warm ivory plaster studio with sandstone floor, natural skin texture, soft daylight, tiny gold earrings, hair in low bun, hands gently hold pallu at waist. No logos, no text, no watermark, no certification tags. Deep wine-maroon plain silk body, 3 inch gold border, matching maroon short-sleeved blouse, subtle soft silk shine, classic evening mood.",
+      "width": 900,
+      "height": 1350,
+      "reuse": "Fictional sample garment and model, not verified store inventory. Colour edits preserve the original garment design."
+    },
+    {
+      "file": "saree-mysore-cobalt.jpg",
+      "kind": "generated",
+      "mode": "generate",
+      "source": "OpenAI built-in image_gen",
+      "reference": "",
+      "prompt": "Use case: product-mockup. Asset type: portrait 2:3 premium Indian saree catalogue photo. Photorealistic fictional adult Indian woman wearing a Mysore silk style saree, smooth lustrous plain silk body, restrained elegant gold-coloured woven border and striped gold pallu, graceful lightweight drape. Full length head to hem visible with margin, centred in warm ivory plaster studio with sandstone floor, natural skin texture, soft daylight, tiny gold earrings, hair in low bun, hands gently hold pallu at waist. No logos, no text, no watermark, no certification tags. Rich cobalt blue plain silk body, slim gold border with a magenta edge, magenta short-sleeved blouse and magenta-gold striped pallu, elegant traditional style.",
+      "width": 900,
+      "height": 1350,
+      "reuse": "Fictional sample garment and model, not verified store inventory. Colour edits preserve the original garment design."
+    },
+    {
+      "file": "saree-mysore-mustard.jpg",
+      "kind": "generated",
+      "mode": "generate",
+      "source": "OpenAI built-in image_gen",
+      "reference": "",
+      "prompt": "Use case: product-mockup. Asset type: portrait 2:3 premium Indian saree catalogue photo. Photorealistic fictional adult Indian woman wearing a Mysore silk style saree, smooth lustrous plain silk body, restrained elegant gold-coloured woven border and striped gold pallu, graceful lightweight drape. Full length head to hem visible with margin, centred in warm ivory plaster studio with sandstone floor, natural skin texture, soft daylight, tiny gold earrings, hair in low bun, hands gently hold pallu at waist. No logos, no text, no watermark, no certification tags. Warm mustard-yellow plain silk body, narrow gold border with a dark green edge, dark bottle-green short-sleeved blouse and green-gold striped pallu, soft luminous silk texture.",
+      "width": 900,
+      "height": 1350,
+      "reuse": "Fictional sample garment and model, not verified store inventory. Colour edits preserve the original garment design."
+    },
+    {
+      "file": "saree-mysore-classic-emerald.jpg",
+      "kind": "generated",
+      "mode": "edit",
+      "source": "OpenAI built-in image_gen",
+      "reference": "saree-mysore-wine",
+      "prompt": "Use case: precise-object-edit. Create a colour variant of the exact saree in the reference catalogue photo. Replace wine-maroon fabric of saree body, blouse and pallu with deep emerald green. Keep gold threads gold. Preserve the identical model face, pose, lighting, framing, background, fabric folds, border width, weave patterns, gold decorative details and pallu stripe arrangement. Only fabric colours change. Same garment design, same photo, no new motifs or ornaments, no text or watermark. Portrait 2:3.",
+      "width": 900,
+      "height": 1350,
+      "reuse": "Fictional sample garment and model, not verified store inventory. Colour edits preserve the original garment design."
+    },
+    {
+      "file": "saree-mysore-classic-navy.jpg",
+      "kind": "generated",
+      "mode": "edit",
+      "source": "OpenAI built-in image_gen",
+      "reference": "saree-mysore-wine",
+      "prompt": "Use case: precise-object-edit. Create a colour variant of the exact saree in the reference catalogue photo. Replace wine-maroon fabric of saree body, blouse and pallu with deep navy blue. Keep gold threads gold. Preserve the identical model face, pose, lighting, framing, background, fabric folds, border width, weave patterns, gold decorative details and pallu stripe arrangement. Only fabric colours change. Same garment design, same photo, no new motifs or ornaments, no text or watermark. Portrait 2:3.",
+      "width": 900,
+      "height": 1350,
+      "reuse": "Fictional sample garment and model, not verified store inventory. Colour edits preserve the original garment design."
+    },
+    {
+      "file": "saree-mysore-contrast-teal.jpg",
+      "kind": "generated",
+      "mode": "edit",
+      "source": "OpenAI built-in image_gen",
+      "reference": "saree-mysore-cobalt",
+      "prompt": "Use case: precise-object-edit. Create a colour variant of the exact saree in the reference catalogue photo. Replace cobalt blue saree body with rich teal, and magenta blouse, pallu and border edge with burgundy wine. Keep gold threads gold. Preserve the identical model face, pose, lighting, framing, background, fabric folds, border width, weave patterns, gold decorative details and pallu stripe arrangement. Only fabric colours change. Same garment design, same photo, no new motifs or ornaments, no text or watermark. Portrait 2:3.",
+      "width": 900,
+      "height": 1350,
+      "reuse": "Fictional sample garment and model, not verified store inventory. Colour edits preserve the original garment design."
+    },
+    {
+      "file": "saree-mysore-contrast-plum.jpg",
+      "kind": "generated",
+      "mode": "edit",
+      "source": "OpenAI built-in image_gen",
+      "reference": "saree-mysore-cobalt",
+      "prompt": "Use case: precise-object-edit. Create a colour variant of the exact saree in the reference catalogue photo. Replace cobalt blue saree body with plum purple, and magenta blouse, pallu and border edge with warm copper-orange. Keep gold threads gold. Preserve the identical model face, pose, lighting, framing, background, fabric folds, border width, weave patterns, gold decorative details and pallu stripe arrangement. Only fabric colours change. Same garment design, same photo, no new motifs or ornaments, no text or watermark. Portrait 2:3.",
+      "width": 900,
+      "height": 1350,
+      "reuse": "Fictional sample garment and model, not verified store inventory. Colour edits preserve the original garment design."
+    },
+    {
+      "file": "saree-mysore-heritage-ivory.jpg",
+      "kind": "generated",
+      "mode": "edit",
+      "source": "OpenAI built-in image_gen",
+      "reference": "saree-mysore-mustard",
+      "prompt": "Use case: precise-object-edit. Create a colour variant of the exact saree in the reference catalogue photo. Replace mustard-yellow saree body with warm ivory, and dark green blouse, pallu and border edge with deep maroon. Keep gold threads gold. Preserve the identical model face, pose, lighting, framing, background, fabric folds, border width, weave patterns, gold decorative details and pallu stripe arrangement. Only fabric colours change. Same garment design, same photo, no new motifs or ornaments, no text or watermark. Portrait 2:3.",
+      "width": 900,
+      "height": 1350,
+      "reuse": "Fictional sample garment and model, not verified store inventory. Colour edits preserve the original garment design."
+    },
+    {
+      "file": "saree-mysore-heritage-rose.jpg",
+      "kind": "generated",
+      "mode": "edit",
+      "source": "OpenAI built-in image_gen",
+      "reference": "saree-mysore-mustard",
+      "prompt": "Use case: precise-object-edit. Create a colour variant of the exact saree in the reference catalogue photo. Replace mustard-yellow saree body with soft dusty rose, and dark green blouse, pallu and border edge with deep navy blue. Keep gold threads gold. Preserve the identical model face, pose, lighting, framing, background, fabric folds, border width, weave patterns, gold decorative details and pallu stripe arrangement. Only fabric colours change. Same garment design, same photo, no new motifs or ornaments, no text or watermark. Portrait 2:3.",
+      "width": 900,
+      "height": 1350,
+      "reuse": "Fictional sample garment and model, not verified store inventory. Colour edits preserve the original garment design."
+    },
+    {
+      "file": "saree-orange-festive.jpg",
+      "kind": "stock",
+      "photographer": "Vismaya Dreamworks",
+      "source": "https://www.pexels.com/photo/traditional-indian-woman-in-orange-saree-34799840/",
+      "download": "https://images.pexels.com/photos/34799840/pexels-photo-34799840.jpeg?auto=compress&cs=tinysrgb&w=1000",
+      "license": "Pexels License",
+      "license_url": "https://www.pexels.com/license/",
+      "reuse": "Illustrative website sample only. No subject endorsement is implied. Do not resell as a stock asset."
+    },
+    {
+      "file": "saree-red-ceremony.jpg",
+      "kind": "stock",
+      "photographer": "Amodita\u2019s Frame",
+      "source": "https://www.pexels.com/photo/traditional-indian-woman-in-red-saree-32596491/",
+      "download": "https://images.pexels.com/photos/32596491/pexels-photo-32596491.jpeg?auto=compress&cs=tinysrgb&w=1000",
+      "license": "Pexels License",
+      "license_url": "https://www.pexels.com/license/",
+      "reuse": "Illustrative website sample only. No subject endorsement is implied. Do not resell as a stock asset."
+    },
+    {
+      "file": "saree-purple-floral.jpg",
+      "kind": "stock",
+      "photographer": "Pritam Paul",
+      "source": "https://www.pexels.com/photo/portrait-of-woman-in-floral-saree-by-river-34040144/",
+      "download": "https://images.pexels.com/photos/34040144/pexels-photo-34040144.jpeg?auto=compress&cs=tinysrgb&w=1000",
+      "license": "Pexels License",
+      "license_url": "https://www.pexels.com/license/",
+      "reuse": "Illustrative website sample only. No subject endorsement is implied. Do not resell as a stock asset."
+    },
+    {
+      "file": "saree-white-rose.jpg",
+      "kind": "stock",
+      "photographer": "Colorful Images",
+      "source": "https://www.pexels.com/photo/elegant-south-asian-woman-in-traditional-white-saree-28537268/",
+      "download": "https://images.pexels.com/photos/28537268/pexels-photo-28537268.jpeg?auto=compress&cs=tinysrgb&w=1000",
+      "license": "Pexels License",
+      "license_url": "https://www.pexels.com/license/",
+      "reuse": "Illustrative website sample only. No subject endorsement is implied. Do not resell as a stock asset."
+    },
+    {
+      "file": "saree-violet-silk.jpg",
+      "kind": "stock",
+      "photographer": "Harshath khan",
+      "source": "https://www.pexels.com/photo/young-woman-in-traditional-indian-saree-19600007/",
+      "download": "https://images.pexels.com/photos/19600007/pexels-photo-19600007.jpeg?auto=compress&cs=tinysrgb&w=1000",
+      "license": "Pexels License",
+      "license_url": "https://www.pexels.com/license/",
+      "reuse": "Illustrative website sample only. No subject endorsement is implied. Do not resell as a stock asset."
     }
   ]
 }

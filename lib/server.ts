@@ -1,5 +1,5 @@
 import { env } from "cloudflare:workers";
-import { samples, defaults } from "./catalog";
+import { samples, defaults, sampleVariants } from "./catalog";
 export const config = () => env as any;
 export const db = () => {
   if (!config().DB)
@@ -44,16 +44,12 @@ export function seed() {
           now(),
         ),
       );
-      statements.push(
-        q(
-          "INSERT OR IGNORE INTO variants(id,product_id,color,sku,stock) VALUES(?,?,?,?,?)",
-          "v" + p.id,
-          p.id,
-          p.color,
-          "DEMO-" + p.id,
-          p.stock,
-        ),
-      );
+      for (const v of sampleVariants(p)) {
+        statements.push(q(
+          "INSERT OR IGNORE INTO variants(id,product_id,color,sku,stock,image) VALUES(?,?,?,?,?,?)",
+          v.id, p.id, v.color, v.sku, v.stock, v.image,
+        ));
+      }
     }
     statements.push(
       q(
@@ -221,14 +217,14 @@ export async function cart(req: Request, create = false) {
   }
   const items = row
     ? await all(
-        "SELECT ci.*,v.color,v.stock,v.product_id,p.name,p.slug,p.price,p.fall_pico,p.images,p.active FROM cart_items ci JOIN variants v ON v.id=ci.variant_id JOIN products p ON p.id=v.product_id WHERE ci.cart_id=?",
+        "SELECT ci.*,v.color,v.stock,v.image AS variant_image,v.product_id,p.name,p.slug,p.price,p.fall_pico,p.images,p.active FROM cart_items ci JOIN variants v ON v.id=ci.variant_id JOIN products p ON p.id=v.product_id WHERE ci.cart_id=?",
         id,
       )
     : [];
   return {
     id: row ? id : null,
     revision: row?.revision,
-    items: items.map((p) => ({ ...p, images: JSON.parse(p.images) })),
+    items: items.map((p) => ({ ...p, images: p.variant_image ? [p.variant_image] : JSON.parse(p.images) })),
     fresh,
   };
 }

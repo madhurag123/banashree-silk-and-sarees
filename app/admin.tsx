@@ -789,12 +789,13 @@ export default function Admin() {
               {[
                 ["color", "Colour"],
                 ["sku", "SKU"],
+                ["image", "Colour photograph (local path or HTTPS URL)"],
               ].map(([key, label]) => (
                 <Field
                   key={key}
                   label={label}
-                  value={variant[key]}
-                  required
+                  value={variant[key] || ""}
+                  required={key !== "image"}
                   onChange={(e: any) =>
                     setVariant({ ...variant, [key]: e.target.value })
                   }

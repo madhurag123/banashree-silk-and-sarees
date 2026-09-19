@@ -1,4 +1,4 @@
-import { defaults, samples } from "./catalog";
+import { defaults, samples, sampleVariants } from "./catalog";
 
 // Only the separately built GitHub Pages document enables this local preview.
 // The full-stack app retains its authenticated server API and relational database.
@@ -24,22 +24,14 @@ const storageKey = "banashree-client-preview-v1";
 type Line = { variantId: string; quantity: number; service: boolean };
 type State = { cart: Line[]; wishlist: string[] };
 const previewProducts = () =>
-  samples.map((p: any, i) => ({
+  samples.map((p, i) => ({
     ...p,
     sample: 1,
     active: 1,
     created_at: i,
     images: JSON.parse(p.images).map(previewAsset),
     collections: p.collections.split(","),
-    variants: [
-      {
-        id: "v" + p.id,
-        product_id: p.id,
-        color: p.color,
-        stock: p.stock,
-        sku: "SAMPLE-" + p.id,
-      },
-    ],
+    variants: sampleVariants(p).map((v) => ({ ...v, image: previewAsset(v.image) })),
   }));
 function read(): State {
   try {
@@ -77,18 +69,20 @@ function bag(state: State) {
   const ps = previewProducts();
   return {
     items: state.cart.flatMap((line) => {
-      const p = ps.find((p) => p.variants[0].id === line.variantId);
+      const p = ps.find((p) => p.variants.some((v) => v.id === line.variantId));
       if (!p) return [];
+      const variant = p.variants.find((v) => v.id === line.variantId)!;
       return [
         {
           ...p,
           id: line.variantId + ":" + Number(line.service),
           variant_id: line.variantId,
           product_id: p.id,
-          color: p.variants[0].color,
-          stock: p.variants[0].stock,
+          color: variant.color,
+          stock: variant.stock,
+          images: [variant.image],
           quantity: line.quantity,
-          service: line.service,
+          service: Boolean(line.service && p.fall_pico),
         },
       ];
     }),
@@ -113,9 +107,10 @@ export async function previewApi(path: string, body?: any): Promise<any> {
       );
     else {
       const p = previewProducts().find(
-        (x) => x.variants[0].id === body.variantId,
+        (x) => x.variants.some((v) => v.id === body.variantId),
       );
       if (!p) throw new Error("This sample saree is unavailable.");
+      const variant = p.variants.find((v) => v.id === body.variantId)!;
       const service = Boolean(body.service && p.fall_pico);
       const line = s.cart.find(
         (x) => x.variantId === body.variantId && x.service === service,
@@ -130,7 +125,7 @@ export async function previewApi(path: string, body?: any): Promise<any> {
         !Number.isInteger(quantity) ||
         quantity < 1 ||
         quantity > 10 ||
-        quantity + otherQuantity > p.variants[0].stock
+        quantity + otherQuantity > variant.stock
       )
         throw new Error("Choose a quantity within the sample stock shown.");
       if (line) line.quantity = quantity;

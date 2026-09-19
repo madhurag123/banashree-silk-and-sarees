@@ -15,6 +15,13 @@
       "when": 1789767700243,
       "tag": "0001_good_tombstone",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1789784906247,
+      "tag": "0002_sturdy_lenny_balinger",
+      "breakpoints": true
     }
   ]
 }

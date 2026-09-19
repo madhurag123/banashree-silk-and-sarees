@@ -1,0 +1,1 @@
+ALTER TABLE `variants` ADD `image` text DEFAULT '' NOT NULL;

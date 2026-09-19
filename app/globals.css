@@ -234,7 +234,7 @@ button:focus-visible {
 }
 .collection-preview {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 24px;
 }
 .collection-preview h3 {
@@ -2582,4 +2582,33 @@ td button {
     font-size: 13px;
     overflow-wrap: anywhere;
   }
+}
+
+/* Colour options belong to a design; each option keeps its photograph and stock. */
+.colour-swatches { display: flex; align-items: center; flex-wrap: wrap; gap: 2px; margin-top: 7px; }
+.colour-swatches button { width: 36px; height: 40px; display: grid; place-items: center; border: 1px solid transparent; border-radius: 50%; background: transparent; }
+.colour-swatches button span { width: 19px; height: 19px; border-radius: 50%; border: 1px solid #0002; }
+.colour-swatches button[aria-pressed="true"] span { outline: 1px solid #6c2637; outline-offset: 4px; }
+.colour-swatches small { color: #74665e; font-size: 12px; margin-left: 5px; }
+.colour-picker { border: 0; padding: 0; margin: 24px 0 12px; min-width: 0; }
+.colour-picker legend { font-size: 15px; }
+.colour-picker > p { margin: 8px 0 14px; font-size: 13px; }
+.colour-options { display: flex; flex-wrap: wrap; gap: 10px; }
+.colour-options button { width: 98px; padding: 5px; border: 1px solid #d7c8b8; border-radius: 5px; background: #fffcf7; color: #49392f; }
+.colour-options button[aria-pressed="true"] { border: 2px solid #72283b; padding: 4px; background: #f5eae6; }
+.colour-options img { display: block; width: 100%; aspect-ratio: 2/3; object-fit: cover; border-radius: 2px; }
+.colour-options button > span { display: flex; align-items: center; justify-content: center; gap: 5px; padding: 9px 0 5px; font-size: 13px; }
+.colour-options i { width: 10px; height: 10px; border: 1px solid #0002; border-radius: 50%; }
+.colour-options small { display: block; font-size: 10px; padding-bottom: 4px; }
+.stock-note { font-size: 13px; color: #6c5849; }
+.collection-chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 28px; }
+.collection-chips button { padding: 10px 17px; min-height: 44px; border: 1px solid #d9cbbb; border-radius: 24px; background: transparent; font-size: 13px; }
+.collection-chips button[aria-pressed="true"] { color: #fff9f1; background: #72283b; border-color: #72283b; }
+.results-bar { scroll-margin-top: 130px; }
+@media (max-width: 600px) {
+  .colour-swatches button { width: 36px; height: 44px; }
+  .colour-options { gap: 8px; }
+  .colour-options button { width: calc((100% - 16px) / 3); max-width: 104px; }
+  .collection-chips { gap: 7px; }
+  .collection-chips button { padding: 8px 12px; }
 }

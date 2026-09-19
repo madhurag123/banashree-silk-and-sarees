@@ -20,7 +20,7 @@ npm run db:local
 npm run dev
 ```
 
-Open the Local URL printed by the server (normally `http://localhost:5173`). If a different port is used, set APP_URL to that origin. Local secrets are read from `.dev.vars`; never commit that file. The database is durable in `.wrangler/state/`. The 12 sample products, variants, store defaults and WELCOME10 coupon are inserted once on the first API request. Seeds use insert-if-absent operations and do not overwrite admin edits. Database schema changes are migrations, not runtime DDL.
+Open the Local URL printed by the server (normally `http://localhost:5173`). If a different port is used, set APP_URL to that origin. Local secrets are read from `.dev.vars`; never commit that file. The database is durable in `.wrangler/state/`. The 24 sample designs and 30 colour options, variants, store defaults and WELCOME10 coupon are inserted once on the first API request. Seeds use insert-if-absent operations and do not overwrite admin edits. Database schema changes are migrations, not runtime DDL.
 
 Local migration history is recorded in `.sites-runtime/local-migrations.json`. Keep it together with `.wrangler/state`; if intentionally creating a completely new local database, remove both directories before rebuilding and migrating. Do not rerun applied migrations manually against an existing database.
 
@@ -39,11 +39,13 @@ Additional people register ordinary customer accounts. An administrator changes 
 
 - Home: editorial hero, collection photography, new arrivals, clearly identified sample bestseller edit, wedding edit, brand introduction, and an honest empty state for testimonials.
 - Shop: text search; fabric, colour, price, occasion, weaving style, collection and in-stock filters; sorting and pagination.
-- Product: image gallery and zoom, variants and available stock, price, measurements, blouse details, care, delivery estimates, wishlist, related products, optional fall & pico.
-- Bag: database-backed guest cookie, editable quantities and finishing services, validated coupons, server-calculated subtotal, shipping and taxes.
+- Product: image gallery and zoom, variants and available stock, price, measurements, blouse details, care, delivery estimates, wishlist, related products.
+- Bag: database-backed guest cookie, editable quantities, validated coupons, server-calculated subtotal, shipping and taxes.
 - Checkout: guest or registered customer, saved addresses, demo/Razorpay/COD modes, durable idempotency, and atomic stock reservations.
 - Account: registration/login/logout, password reset when email is configured, profile, wishlist, addresses, order history and tracking.
 - Supporting pages: About, Contact with database-backed enquiries, FAQ, draping guide, draft shipping/returns/privacy/terms.
+
+Each colour variant can have its own photograph, SKU and stock in the colour/inventory editor. The three Mysore Silk sample designs each include three matching colour photographs. Existing seeded backend databases are not automatically overwritten; use the admin editor to add the new designs.
 
 Image URLs and gallery ordering are managed in the product editor (one HTTPS URL or local `/images/…` path per line). Self-host product assets in `public/images` or use your approved image host. Direct file upload is not included. Collections are managed as comma-separated product assignments; new collection names automatically appear in the catalogue filter.
 

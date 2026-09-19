@@ -40,6 +40,7 @@ export const variants = sqliteTable(
       .references(() => products.id),
     color: text("color").notNull(),
     sku: text("sku").notNull().unique(),
+    image: text("image").notNull().default(""),
     stock: integer("stock").notNull(),
   },
   (t) => [

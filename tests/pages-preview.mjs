@@ -20,9 +20,34 @@ try {
   assert.equal(previewSearch(),'?collection=Cotton');
   assert.equal(previewAsset('/images/hero.jpg'),'/banashree-silk-and-sarees/images/hero.jpg');
   const store = await previewApi('store');
-  assert.equal(store.products.length,12);
+  assert.equal(store.products.length,24);
   assert.ok(store.products.every(p=>p.sample===1 && p.images[0].startsWith('/banashree-silk-and-sarees/images/')));
   assert.equal(store.user,null);
+  assert.equal(new Set(store.products.map(p=>p.slug)).size,24);
+  const mysore = store.products.filter(p=>p.collections.includes('Mysore Silk'));
+  assert.equal(mysore.length,3);
+  assert.ok(mysore.every(p=>p.variants.length===3));
+  assert.equal(store.products.flatMap(p=>p.variants).length,30);
+  for(const p of store.products) {
+    assert.ok(p.price > 0 && Number.isInteger(p.price));
+    for(const v of p.variants) {
+      assert.ok(p.images.includes(v.image),'Each colour photograph belongs to the same product gallery');
+      await fs.access(new URL('../public/images/'+v.image.split('/').pop(),import.meta.url));
+    }
+  }
+  const [wine,emerald,navy] = mysore[0].variants;
+  await previewApi('cart',{variantId:emerald.id,quantity:2,service:true});
+  await previewApi('cart',{variantId:navy.id,quantity:1});
+  let colourBag=(await previewApi('cart')).items;
+  assert.equal(colourBag.length,2);
+  assert.equal(colourBag[0].color,'Emerald');
+  assert.equal(colourBag[0].images[0],emerald.image);
+  assert.equal(colourBag[1].color,'Navy');
+  assert.notEqual(colourBag[0].images[0],colourBag[1].images[0]);
+  await assert.rejects(previewApi('cart',{variantId:emerald.id,quantity:3,service:false}),/stock/);
+  const unavailable=mysore[1].variants.find(v=>v.stock===0);
+  await assert.rejects(previewApi('cart',{variantId:unavailable.id,quantity:1}),/stock/);
+  for(const line of colourBag)await previewApi('cart',{remove:line.id});
   const p=store.products[0],variantId=p.variants[0].id;
   await previewApi('cart',{variantId,quantity:1,service:true});
   assert.equal((await previewApi('cart')).items.length,1);

@@ -434,60 +434,41 @@ function Footer() {
     </footer>
   );
 }
-function Card({ p }: any) {
+const colourHex: Record<string, string> = {
+  Rose: "#c48b93", Emerald: "#19563f", Ivory: "#ded1b6", Blue: "#344c6f",
+  Gold: "#b19646", Lavender: "#a399bd", Teal: "#36777b", Green: "#88a591",
+  Yellow: "#d5b951", Multicolor: "#aa7145", Maroon: "#692737", Cobalt: "#244bb0",
+  Mustard: "#c49924", Indigo: "#344863", Sage: "#99a38c", Rust: "#a4533d",
+  Sand: "#c5b89f", Purple: "#784475", Red: "#c33846", Orange: "#dd8a2e",
+  Navy: "#26384f", Plum: "#673955",
+};
+function Card({ p, preferredColor = "" }: any) {
   const { wish } = useStore();
+  const [selected, setSelected] = useState(preferredColor);
+  const v = p.variants.find((v: any) => v.color === selected) || p.variants[0];
+  const href = "/product/" + p.slug + (p.variants.length > 1 ? "?colour=" + encodeURIComponent(v.color) : "");
   return (
     <article className="product-card">
       <div className="product-image">
-        <SiteLink href={"/product/" + p.slug}>
-          <Pic
-            src={p.images[0]}
-            alt={p.name + " — illustrative sample photograph"}
-          />
+        <SiteLink href={href}>
+          <Pic src={v?.image || p.images[0]} alt={p.name + " in " + v?.color + " — illustrative sample photograph"} />
         </SiteLink>
         {p.sample === 1 && <span className="sample-tag">SAMPLE</span>}
-        <button
-          className="heart"
-          aria-label={"Save " + p.name + " to wishlist"}
-          onClick={() => wish(p)}
-        >
-          <Heart size={18} />
-        </button>
-        {!p.variants.some((v: any) => v.stock > 0) && (
-          <span className="sold-out">Out of stock</span>
-        )}
+        <button className="heart" aria-label={"Save " + p.name + " to wishlist"} onClick={() => wish(p)}><Heart size={18} /></button>
+        {!v?.stock && <span className="sold-out">Out of stock</span>}
       </div>
-      <div className="product-meta">
-        {p.weave} · {p.fabric}
-      </div>
-      <SiteLink href={"/product/" + p.slug}>
-        <h3>{p.name}</h3>
-      </SiteLink>
+      <div className="product-meta">{p.weave} · {p.fabric}</div>
+      <SiteLink href={href}><h3>{p.name}</h3></SiteLink>
       <span className="price">{money(p.price)}</span>
-      <div className="swatches">
-        {p.variants.map((v: any) => (
-          <span
-            key={v.id}
-            style={{
-              background:
-                (
-                  {
-                    Rose: "#c48b93",
-                    Emerald: "#19563f",
-                    Ivory: "#ded1b6",
-                    Blue: "#344c6f",
-                    Gold: "#b19646",
-                    Lavender: "#a399bd",
-                    Teal: "#36777b",
-                    Green: "#88a591",
-                    Yellow: "#d5b951",
-                    Multicolor: "#aa7145",
-                  } as any
-                )[v.color] || "#8a404d",
-            }}
-            title={v.color}
-          />
+      <div className="colour-swatches" aria-label={p.name + " colours"}>
+        {p.variants.map((option: any) => (
+          <button key={option.id} type="button" aria-label={p.name + " — " + option.color}
+            aria-pressed={v.id === option.id} title={option.color + (!option.stock ? " · Out of stock" : "")}
+            onClick={() => setSelected(option.color)}>
+            <span style={{ background: colourHex[option.color] || "#8a404d" }} />
+          </button>
         ))}
+        <small>{p.variants.length > 1 ? p.variants.length + " colours" : v?.color}</small>
       </div>
     </article>
   );
@@ -496,9 +477,10 @@ function Home() {
   const { products: ps, settings: s, loaded } = useStore();
   const cols = [
     ["Silk", "saree-pink-silk"],
+    ["Mysore Silk", "saree-mysore-wine"],
     ["Kanjivaram", "saree-emerald"],
     ["Banarasi", "saree-blue-orange"],
-    ["Cotton", "saree-checkered"],
+    ["Cotton", "saree-indigo-cotton"],
     ["Bridal", "saree-ivory"],
   ];
   return (
@@ -564,7 +546,7 @@ function Home() {
         </div>
         <div className="collection-preview">
           {cols.map(([x, img]) => (
-            <SiteLink href={"/shop?collection=" + x} key={x}>
+            <SiteLink href={"/shop?collection=" + encodeURIComponent(x)} key={x}>
               <Pic
                 src={"/images/" + img + ".jpg"}
                 alt={x + " saree collection — illustrative photography"}
@@ -584,7 +566,7 @@ function Home() {
           </SiteLink>
         </div>
         <div className="product-grid">
-          {ps.slice(0, 4).map((p: any) => (
+          {[...ps].sort((a: any, b: any) => b.created_at - a.created_at).slice(0, 4).map((p: any) => (
             <Card key={p.id} p={p} />
           ))}
         </div>
@@ -691,9 +673,9 @@ function Shop() {
   let items = ps.filter(
     (p: any) =>
       (!filters.q ||
-        (p.name + " " + p.fabric + " " + p.weave)
+        [p.name, p.fabric, p.weave, p.occasion, ...p.collections, ...p.variants.map((v: any) => v.color)].join(" ")
           .toLowerCase()
-          .includes(filters.q.toLowerCase())) &&
+          .includes(filters.q.trim().toLowerCase())) &&
       (!filters.collection || p.collections.includes(filters.collection)) &&
       (!filters.fabric || p.fabric === filters.fabric) &&
       (!filters.color ||
@@ -701,7 +683,7 @@ function Shop() {
       (!filters.occasion || p.occasion === filters.occasion) &&
       (!filters.weave || p.weave === filters.weave) &&
       (!filters.max || p.price <= Number(filters.max) * 100) &&
-      (!filters.availability || p.variants.some((v: any) => v.stock > 0)),
+      (!filters.availability || p.variants.some((v: any) => v.stock > 0 && (!filters.color || v.color === filters.color))),
   );
   items = [...items].sort((a: any, b: any) =>
     filters.sort === "price-low"
@@ -742,7 +724,9 @@ function Shop() {
             ? filters.collection + " sarees"
             : "The saree collection"}
         </h1>
-        <p>From everyday rituals to extraordinary celebrations.</p>
+        <p>{filters.collection === "Mysore Silk"
+          ? "Plain silk-style drapes, luminous borders. Explore the same design in your favourite colour."
+          : "From everyday rituals to extraordinary celebrations."}</p>
       </div>
       <form className="search-bar" onSubmit={(e) => e.preventDefault()}>
         <Search size={19} />
@@ -764,6 +748,12 @@ function Shop() {
           Filters
         </Button>
       </form>
+      <div className="collection-chips" aria-label="Quick collection filters">
+        {["", "Mysore Silk", "Kanjivaram", "Banarasi", "Cotton", "Linen", "Bridal"].map((c) => (
+          <button key={c} type="button" aria-pressed={filters.collection === c}
+            onClick={() => filter("collection", c)}>{c || "All sarees"}</button>
+        ))}
+      </div>
       <div className="shop-layout">
         <aside
           id="catalogue-filters"
@@ -850,7 +840,7 @@ function Shop() {
           </div>
           <div className="product-grid shop-grid">
             {items.slice((page - 1) * 9, page * 9).map((p: any) => (
-              <Card key={p.id} p={p} />
+              <Card key={p.id + filters.color} p={p} preferredColor={filters.color} />
             ))}
           </div>
           {loaded && !items.length && (
@@ -864,7 +854,7 @@ function Shop() {
               <Button
                 variant="outline"
                 disabled={page === 1}
-                onClick={() => setPage(page - 1)}
+                onClick={() => { setPage(page - 1); document.querySelector(".results-bar")?.scrollIntoView({ block: "start" }); }}
               >
                 Previous
               </Button>
@@ -874,7 +864,7 @@ function Shop() {
               <Button
                 variant="outline"
                 disabled={page >= Math.ceil(items.length / 9)}
-                onClick={() => setPage(page + 1)}
+                onClick={() => { setPage(page + 1); document.querySelector(".results-bar")?.scrollIntoView({ block: "start" }); }}
               >
                 Next
               </Button>
@@ -888,8 +878,8 @@ function Shop() {
 function Product({ slug }: any) {
   const { products: ps, settings: s, loaded, act, wish } = useStore();
   const p = ps.find((p: any) => p.slug === slug);
-  const [variant, setVariant] = useState("");
-  const [service, setService] = useState(false);
+  const [variant, setVariant] = useState(() => new URLSearchParams(previewSearch()).get("colour") || "");
+  const service = false;
   const [qty, setQty] = useState(1);
   const [photo, setPhoto] = useState(0);
   const [zoom, setZoom] = useState(false);
@@ -909,7 +899,9 @@ function Product({ slug }: any) {
         )}
       </div>
     );
-  const v = p.variants.find((v: any) => v.id === variant) || p.variants[0];
+  const v = p.variants.find((v: any) => v.id === variant || v.color === variant) || p.variants[0];
+  const gallery = v?.image ? [previewAsset(v.image)] : p.images;
+  function chooseColour(id: string) { setVariant(id); setPhoto(0); setQty(1); setAdded(false); }
   async function add() {
     setBusy(true);
     try {
@@ -941,7 +933,7 @@ function Product({ slug }: any) {
             aria-label="Zoom saree photograph"
           >
             <Pic
-              src={p.images[photo]}
+              src={gallery[photo]}
               alt={p.name + " — illustrative sample"}
               eager
             />
@@ -950,7 +942,7 @@ function Product({ slug }: any) {
             </span>
           </button>
           <div className="thumbnails">
-            {p.images.map((src: string, i: number) => (
+            {gallery.map((src: string, i: number) => (
               <button
                 key={src + i}
                 className={photo === i ? "selected" : ""}
@@ -977,24 +969,22 @@ function Product({ slug }: any) {
             <span className="pill">Clearly labelled sample product</span>
           )}
           <p>{p.description}</p>
-          <Choose
-            label="Colour"
-            value={v?.id || ""}
-            onChange={(e: any) => setVariant(e.target.value)}
-          >
-            {p.variants.map((v: any) => (
-              <option key={v.id} value={v.id}>
-                {v.color} · {v.stock} in stock
-              </option>
-            ))}
-          </Choose>
-          {p.fall_pico > 0 && (
-            <CheckField
-              label={"Add fall & pico finishing · " + money(p.fall_pico)}
-              checked={service}
-              onChange={setService}
-            />
-          )}
+          <fieldset className="colour-picker">
+            <legend>Colour: <strong>{v?.color}</strong></legend>
+            <p className="subtle">{p.variants.length > 1 ? "Same design, different colours. Select to see your saree." : "Available colour for this design."}</p>
+            <div className="colour-options">
+              {p.variants.map((option: any) => (
+                <button key={option.id} type="button" aria-pressed={v?.id === option.id}
+                  aria-label={"Choose " + option.color + (!option.stock ? " — out of stock" : "")}
+                  onClick={() => chooseColour(option.id)}>
+                  {option.image && <Pic src={option.image} alt="" />}
+                  <span><i style={{ background: colourHex[option.color] || "#8a404d" }} />{option.color}</span>
+                  {!option.stock && <small>Out of stock</small>}
+                </button>
+              ))}
+            </div>
+          </fieldset>
+          <p className="stock-note" role="status">{v?.stock ? `${v.stock} available in ${v.color}${p.sample ? " · Sample stock" : ""}` : `${v?.color} is currently out of stock`}</p>
           <div className="buy-row">
             <Field
               label="Quantity"
@@ -1108,7 +1098,7 @@ function Product({ slug }: any) {
             aria-label="Scrollable enlarged photograph"
           >
             <img
-              src={p.images[photo]}
+              src={gallery[photo]}
               alt={p.name}
               width={1200}
               height={1800}
