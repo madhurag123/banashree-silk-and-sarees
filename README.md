@@ -4,6 +4,13 @@
 
 A mobile-friendly client design preview of an Indian saree boutique, with ivory backgrounds, maroon accents and bold brand lettering.
 
+
+## Catalogue update
+
+The preview now includes **24 sample saree designs and 30 colour choices**, with a dedicated **Mysore Silk** collection. Three Mysore designs each offer three colours; selecting a colour updates its matching photograph and stock, and the shopping bag keeps colours separate. Finishing add-ons and their sample charges have been removed.
+
+The source archive includes the new colour-image database migration and admin image field. Type checks, both builds, preview checks and 16 local customer/admin journey groups passed. Photography and inventory remain illustrative.
+
 ## Complete project source
 
 Download [banashree-source.zip](banashree-source.zip) and extract the `banashree-github` folder. It contains the full frontend, backend, relational database schema, administrator dashboard, tests, environment-variable template and setup/deployment instructions.
