@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1789766779553,
+      "tag": "0000_cute_nebula",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1789767700243,
+      "tag": "0001_good_tombstone",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1789784906247,
+      "tag": "0002_sturdy_lenny_balinger",
+      "breakpoints": true
+    }
+  ]
+}
