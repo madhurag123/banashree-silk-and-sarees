@@ -62,4 +62,4 @@ Next steps: import the structured development source into normal versioned files
 The existing root files remain the static client preview. The complete application, server routes, database migrations, dependency lockfile and tests are in [full-stack/](full-stack/README.md). Follow that README from the `full-stack` directory for local setup. Both source histories and the existing preview are retained. Payment credentials and customer records are not included.
 
 
-[Publication provenance and current verification notes](PUBLICATION.md) · [Categorized collection](https://github.com/madhurag123/portfolio-index)
+[Publication provenance and current verification notes](PUBLICATION.md) · [Categorized collection](https://github.com/madhurag123/madhurag123/tree/main/project-collection)
