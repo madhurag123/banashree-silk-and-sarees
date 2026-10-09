@@ -55,3 +55,11 @@ On 18 September 2026, the public preview and the matching local static files loa
 When changing the preview, check Home → Shop → product details, search/filter behavior, wishlist and bag persistence, and the disabled account/checkout notices on desktop and a narrow screen. Keep sample labels visible.
 
 Next steps: import the structured development source into normal versioned files for easier code review; add a repeatable preview check; and record the exact personal contribution and tools/assistance used in the project. Full-store launch requires the separate deployment and external-service checks in the source archive.
+
+
+## Full application source
+
+The existing root files remain the static client preview. The complete application, server routes, database migrations, dependency lockfile and tests are in [full-stack/](full-stack/README.md). Follow that README from the `full-stack` directory for local setup. Both source histories and the existing preview are retained. Payment credentials and customer records are not included.
+
+
+[Publication provenance and current verification notes](PUBLICATION.md) · [Categorized collection](https://github.com/madhurag123/portfolio-index)
